@@ -21,7 +21,7 @@ public class AccountServerImpl implements AccountServer {
 
     @Override
     public ResultUtil reduceAcount(Account param) {
-        int upcount=accountDao.reduceStock(param.getId(),param.getMoney());
+        int upcount=accountDao.reduceAccount(param.getId(),param.getMoney());
         if (upcount==0){
             throw new RuntimeException("更新账户失败！");
         }
