@@ -30,7 +30,6 @@ public class OrderServerImpl implements OrderServer {
     private AccountFeginServer accountFeginServer;
 
     @Override
-    @Transactional
     @GlobalTransactional
     public ResultUtil createOrder(Order order) {
 
@@ -46,9 +45,9 @@ public class OrderServerImpl implements OrderServer {
         account.put("userId",1);
         account.put("money",10);
         account.put("accountId",1);
+        accountFeginServer.reduceAccount(account);
 
-        accountFeginServer.reduceStock(account);
-
+        //减库存
         ResultUtil result = stockFeginServer.reduceStock(object);
 
         return result;

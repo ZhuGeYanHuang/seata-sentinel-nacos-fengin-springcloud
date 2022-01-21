@@ -17,5 +17,5 @@ public interface AccountFeginServer {
 
 
     @PutMapping("/reduceAccount")
-    ResultUtil reduceStock(@RequestBody JSONObject param);
+    ResultUtil reduceAccount(@RequestBody JSONObject param);
 }
